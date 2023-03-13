@@ -18,12 +18,5 @@ echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.defau
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 echo 'src-git openclash https://github.com/vernesong/OpenClash' >>feeds.conf.default
 
-# Add luci-app-adguardhome
-git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package-temp/luci-app-adguardhome
-mv -f package-temp/luci-app-adguardhome package/lean/
-rm -rf package-temp
-
-# Add luci-app-openclash
-git clone https://github.com/vernesong/OpenClash.git package-temp
-mv -f package-temp/luci-app-openclash package/lean/
-rm -rf package-temp
+sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
